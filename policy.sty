@@ -1,0 +1,154 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Programming/Coding Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+% This template uses a Perl script as an example snippet of code, most other
+% languages are also usable. Configure them in the "CODE INCLUSION 
+% CONFIGURATION" section.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This template was modified from its original configuration by Ricardo Piro-Rael
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+
+\usepackage{fancyhdr} % Required for custom headers
+\usepackage{lastpage} % Required to determine the last page for the footer
+\usepackage{extramarks} % Required for headers and footers
+\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+\usepackage{graphicx} % Required to insert images
+\usepackage{courier} % Required for the courier font
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+\usepackage{amsmath,amsfonts,amsthm} %Math Packages
+\usepackage{mathabx}
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{mdframed}
+\usepackage{array}
+%amsmath customizations
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
+
+% So I can find things I left missing
+\newcommand{\fixme}{{\Huge \color{red} FIXME }}
+
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usetikzlibrary{pgfplots.polar}
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1} % Line spacing
+
+% Set up the header and footer
+\pagestyle{fancy}
+\lhead{\docAuthorName} % Top left header
+\chead{\docClass\ (\docAdmin\ \docTime): \docTitle} % Top center head
+\rhead{\firstxmark} % Top right header
+\lfoot{\lastxmark} % Bottom left footer
+\cfoot{} % Bottom center footer
+\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
+\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+
+\setlength\parindent{0pt} % Removes all indentation from paragraphs
+
+%----------------------------------------------------------------------------------------
+%	CODE INCLUSION CONFIGURATION
+%----------------------------------------------------------------------------------------
+
+\definecolor{dkred}{rgb}{0.85 0 0}% dark red 
+\definecolor{MyDarkGreen}{rgb}{0.0,0.4,0.0} % This is the color used for comments
+\definecolor{light-gray}{gray}{0.95} %Light gray for zebra background
+
+%----------------------------------------------------------------------------------------
+%	DOCUMENT STRUCTURE COMMANDS
+%	Skip this unless you know what you're doing
+%----------------------------------------------------------------------------------------
+
+% Header and footer for when a page split occurs within a policy environment
+\newcommand{\enterPolicyHeader}[1]{
+\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+}
+
+% Header and footer for when a page split occurs between policy environments
+\newcommand{\exitPolicyHeader}[1]{
+\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+\nobreak\extramarks{#1}{}\nobreak
+}
+
+\setcounter{secnumdepth}{0} % Removes default section numbers
+\newcounter{policyCounter} % Creates a counter to keep track of the number of policies
+\setcounter{policyCounter}{0}
+
+\newcommand{\policyName}{}
+\newenvironment{policy}[1][\arabic{policyCounter}]{ % Makes a new environment called policy which takes 1 argument (custom name) but the default is "Policy #"
+\stepcounter{policyCounter} % Increase counter for number of policies
+\renewcommand{\policyName}{#1} % Assign \policyName the name of the policy
+\section{\policyName} % Make a section in the document with the custom policy count
+\enterPolicyHeader{\policyName} % Header and footer within the environment
+}{
+\exitPolicyHeader{\policyName} % Header and footer after the environment
+}
+
+\newcommand{\policyResponse}[1]{ % Defines the policy response command with the content as the only argument
+\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the policy response and puts the content inside
+}
+
+\newcommand{\policySectionName}{}
+\newenvironment{policySection}[1]{ % New environment for sections within policies, takes 1 argument - the name of the section
+\renewcommand{\policySectionName}{#1} % Assign \policySectionName to the name of the section from the environment argument
+\subsection{\policySectionName} % Make a subsection with the custom name of the subsection
+\enterPolicyHeader{\policyName\ [\policySectionName]} % Header and footer within the environment
+}{
+\enterPolicyHeader{\policyName} % Header and footer after the environment
+}
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CLASS SECTION
+%----------------------------------------------------------------------------------------
+
+\newcommand{\docTitle}{Cloud Services} % Assignment title
+\newcommand{\draftDate}{June 09, 2015} % Due date
+\newcommand{\docClass}{Policies} % Course/class
+\newcommand{\docTime}{2015} % Class/lecture time
+\newcommand{\docAdmin}{Official Policy} % Teacher/lecturer
+\newcommand{\docAuthorName}{UNM Informatics Lab} % Your name
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title{
+\vspace{2in}
+\textmd{\textbf{\docClass:\ \docTitle}}\\
+\normalsize\vspace{0.1in}\small{Drafted on\ on\ \draftDate}\\
+\vspace{0.1in}\large{\textit{\docAdmin\ \docTime}}
+\vspace{3in}
+}
+
+\author{\textbf{\docAuthorName}}
+\date{\draftDate} % Insert date here if you want it to appear below your name

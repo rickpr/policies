@@ -1,0 +1,312 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Programming/Coding Assignment
+% LaTeX Template
+%
+% This template has been downloaded from:
+% http://www.latextemplates.com
+%
+% Original author:
+% Ted Pavlic (http://www.tedpavlic.com)
+%
+% Note:
+% The \lipsum[#] commands throughout this template generate dummy text
+% to fill the template out. These commands should all be removed when 
+% writing assignment content.
+%
+% This template uses a Perl script as an example snippet of code, most other
+% languages are also usable. Configure them in the "CODE INCLUSION 
+% CONFIGURATION" section.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+%\documentclass{article}
+%
+%\usepackage{fancyhdr} % Required for custom headers
+%\usepackage{lastpage} % Required to determine the last page for the footer
+%\usepackage{extramarks} % Required for headers and footers
+%\usepackage[usenames,dvipsnames]{color} % Required for custom colors
+%\usepackage{graphicx} % Required to insert images
+%\usepackage{courier} % Required for the courier font
+%\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+%\usepackage{amsmath,amsfonts,amsthm} %Math Packages
+%\usepackage{mathabx}
+%\usepackage{mathtools}
+%\usepackage{amssymb}
+%\usepackage{hyperref}
+%\usepackage{mdframed}
+%\usepackage{array}
+%%amsmath customizations
+%\makeatletter
+%\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+%  \hskip -\arraycolsep
+%  \let\@ifnextchar\new@ifnextchar
+%  \array{#1}}
+%\makeatother
+%
+%% So I can find things I left missing
+%\newcommand{\fixme}{{\Huge \color{red} FIXME }}
+%
+%\usepackage{tikz}
+%\usepackage{pgfplots}
+%\usetikzlibrary{pgfplots.polar}
+%% Margins
+%\topmargin=-0.45in
+%\evensidemargin=0in
+%\oddsidemargin=0in
+%\textwidth=6.5in
+%\textheight=9.0in
+%\headsep=0.25in
+%
+%\linespread{1.1} % Line spacing
+%
+%% Set up the header and footer
+%\pagestyle{fancy}
+%\lhead{\docAuthorName} % Top left header
+%\chead{\docClass\ (\docAdmin\ \docTime): \docTitle} % Top center head
+%\rhead{\firstxmark} % Top right header
+%\lfoot{\lastxmark} % Bottom left footer
+%\cfoot{} % Bottom center footer
+%\rfoot{Page\ \thepage\ of\ \protect\pageref{LastPage}} % Bottom right footer
+%\renewcommand\headrulewidth{0.4pt} % Size of the header rule
+%\renewcommand\footrulewidth{0.4pt} % Size of the footer rule
+%
+%\setlength\parindent{0pt} % Removes all indentation from paragraphs
+%
+%%----------------------------------------------------------------------------------------
+%%	CODE INCLUSION CONFIGURATION
+%%----------------------------------------------------------------------------------------
+%
+%\definecolor{dkred}{rgb}{0.85 0 0}% dark red 
+%\definecolor{MyDarkGreen}{rgb}{0.0,0.4,0.0} % This is the color used for comments
+%\definecolor{light-gray}{gray}{0.95} %Light gray for zebra background
+%
+%%----------------------------------------------------------------------------------------
+%%	DOCUMENT STRUCTURE COMMANDS
+%%	Skip this unless you know what you're doing
+%%----------------------------------------------------------------------------------------
+%
+%% Header and footer for when a page split occurs within a policy environment
+%\newcommand{\enterPolicyHeader}[1]{
+%\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak
+%\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+%}
+%
+%% Header and footer for when a page split occurs between policy environments
+%\newcommand{\exitPolicyHeader}[1]{
+%\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak
+%\nobreak\extramarks{#1}{}\nobreak
+%}
+%
+%\setcounter{secnumdepth}{0} % Removes default section numbers
+%\newcounter{policyCounter} % Creates a counter to keep track of the number of policies
+%\setcounter{policyCounter}{0}
+%
+%\newcommand{\policyName}{}
+%\newenvironment{policy}[1][\arabic{policyCounter}]{ % Makes a new environment called policy which takes 1 argument (custom name) but the default is "Policy #"
+%\stepcounter{policyCounter} % Increase counter for number of policies
+%\renewcommand{\policyName}{#1} % Assign \policyName the name of the policy
+%\section{\policyName} % Make a section in the document with the custom policy count
+%\enterPolicyHeader{\policyName} % Header and footer within the environment
+%}{
+%\exitPolicyHeader{\policyName} % Header and footer after the environment
+%}
+%
+%\newcommand{\policyResponse}[1]{ % Defines the policy response command with the content as the only argument
+%\noindent\framebox[\columnwidth][c]{\begin{minipage}{0.98\columnwidth}#1\end{minipage}} % Makes the box around the policy response and puts the content inside
+%}
+%
+%\newcommand{\policySectionName}{}
+%\newenvironment{policySection}[1]{ % New environment for sections within policies, takes 1 argument - the name of the section
+%\renewcommand{\policySectionName}{#1} % Assign \policySectionName to the name of the section from the environment argument
+%\subsection{\policySectionName} % Make a subsection with the custom name of the subsection
+%\enterPolicyHeader{\policyName\ [\policySectionName]} % Header and footer within the environment
+%}{
+%\enterPolicyHeader{\policyName} % Header and footer after the environment
+%}
+%
+%%----------------------------------------------------------------------------------------
+%%	NAME AND CLASS SECTION
+%%----------------------------------------------------------------------------------------
+%
+%\newcommand{\docTitle}{Cloud Services} % Assignment title
+%\newcommand{\draftDate}{June 09, 2015} % Due date
+%\newcommand{\docClass}{Policies} % Course/class
+%\newcommand{\docTime}{2015} % Class/lecture time
+%\newcommand{\docAdmin}{Official Policy} % Teacher/lecturer
+%\newcommand{\docAuthorName}{UNM Informatics Lab} % Your name
+%
+%%----------------------------------------------------------------------------------------
+%%	TITLE PAGE
+%%----------------------------------------------------------------------------------------
+%
+%\title{
+%\vspace{2in}
+%\textmd{\textbf{\docClass:\ \docTitle}}\\
+%\normalsize\vspace{0.1in}\small{Drafted on\ on\ \draftDate}\\
+%\vspace{0.1in}\large{\textit{\docAdmin\ \docTime}}
+%\vspace{3in}
+%}
+%
+%\author{\textbf{\docAuthorName}}
+%\date{\draftDate} % Insert date here if you want it to appear below your name
+%
+%%----------------------------------------------------------------------------------------
+%
+\documentclass{article}
+\usepackage{policy}
+\begin{document}
+
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS
+%----------------------------------------------------------------------------------------
+
+%\setcounter{tocdepth}{1} % Uncomment this line if you don't want subsections listed in the ToC
+
+\newpage
+\tableofcontents
+\newpage
+
+% To have just one policy per page, simply put a \clearpage after each policy
+
+\begin{policy}[AC-1]
+  \policyName{ Access Control Policy and Procedures}
+  \policySection{Purpose}
+  The purpose of this section is to document and communicate the process of
+  Access Control and issuance of access to any cloud-based system covered by
+  this document.
+  \policySection{Scope}
+  This document applies to all systems managed by the UNM Inforamtics lab that
+  may contain any sensitive information. Sensitive information is anything that
+  is covered by UNM Policy 2520 Section 5.2 \cite{UNM2520}.
+\end{policy}
+%----------------------------------------------------------------------------------------
+
+\begin{policy}[AC-2]
+  \policyName{ Account Management}\label{AC2}
+  \policySection{(1)}
+  \policySectionName{ Automated System Account Management}
+  This system employs various techniques in order to automatically manage
+  systems accounts, including provisioning and deprovisioning accounts, and
+  verifying identities. All authentication will be through a public key meeting
+  at least \fixme standard, or a password meeting \fixme standard.
+
+  An administrator will be notified by e-mail automatically if any changes are
+  made to any user's permissions on the system. This includes, but is not
+  limited to, the following operations:
+  \begin{itemize}
+    \item A user account is provisioned on the system.
+    \item A user is terminated or transferred.
+    \item A user account is deprovisioned on the system.
+    \item A user account is undergoing atypical usage.
+    \item A system previously containing no sensitive information will have
+      access to sensitive information.
+  \end{itemize}
+  \policySection{(2)}
+  \policySectionName{ Removal of Temporary / Emergency Accounts}
+  Temporary and emergency accounts are accounts intended for short-term use.
+  They will be removed if any of the following conditions are met:
+  \begin{itemize}
+    \item When the account is no longer required.
+    \item When individuals with access to the account are transferred or
+      terminated.
+    \item When an agreed termination date and time for the account has been
+      reached.
+  \end{itemize}
+  \policySection{(3)}
+  \policySectionName{ Disable Inactive Accounts}
+  Accounts will be automatically disable if inactive for more than 90 days.
+  \policySection{(4)}
+  \policySectionName{ Automated Audit Actions}
+  Any action related to the creation, change, or removal of a user from the
+  system will be logged. In addition to the actions listed in
+  \hyperref[AC2]{policy AC-2}, the following actions will be audited and
+  logged:
+  \begin{itemize}
+    \item User account enabling
+    \item User account disabling
+    \item User account modification
+    \item Account inactivity
+  \end{itemize}
+\end{policy}
+
+\begin{policy}[AC-3]
+  \policyName{ Access Enforcement}
+  Access enforcement will be performed according to an access control matrix
+  like the example \hyperref[control:matrix]{here}. All identity verification will be performed either using
+  public-key cryptography meeting at least the standards here \fixme, or a
+  password meeting the standards at \fixme.
+
+  \begin{table}[h]
+    \label{control:matrix}
+    \begin{tabular}{ccccccc}
+      & \textbf{Asset 1} & \textbf{Asset 2} & \ldots & \textbf{Asset N} &
+      \textbf{File} & \textbf{Device} \\ \hline \hline
+      \textbf{Role 1} & \{\emph{read,write,execute,own}\} &
+      \{\emph{read,write,execute,own}\} & & \ldots & \{\emph{read,write\}} &
+      \{\emph{read,write}\} \\ \hline
+      \textbf{Role 2} & \{\emph{read,write,execute,own}\} &
+      \{\emph{read,write,execute,own}\} & & \ldots & \{\emph{read,write\}} &
+      \{\emph{read,write}\} \\ \hline
+      \ldots \\ \hline
+      \textbf{Role N} & \{\emph{read,write,execute,own}\} &
+      \{\emph{read,write,execute,own}\} & & \ldots & \{\emph{read,write\}} &
+      \{\emph{read,write}\} \\ \hline
+    \end{tabular}
+    \caption{Sample Access Control Matrix}
+  \end{table}
+\end{policy}
+
+\begin{policy}[AC-4]
+  \policyName{ Information Flow Enforcement}
+  Information flow enforcement will be conducted by attaching metadata to
+  sensitive data, and establishing secure information domains. Information with
+  metadata attached will always be encrypted in transit, and will only use
+  approved information transit mechanisms, such as \texttt{sftp}.
+\end{policy}
+
+\begin{policy}[AC-5]
+  \policyName{ Separation of Duties}
+  Separation of duties will be implemented primarily to prevent the following
+  scenarios:
+  \begin{itemize}
+    \item Destruction of important data by an authenticated individual.
+    \item Exfiltration of sensitive data by an authenticated individual.
+  \end{itemize}
+  In order to reduce these risks, the following controls will be implemented:
+  \begin{itemize}
+    \item Servers containing sensitive data may only be accessed from a
+      designated client machine on campus.
+    \item Servers running important services may only be accessed from a
+      designaed client machine on campus.
+    \item No unnecessary tools will be installed on production servers. This
+      includes but is not limited to the following:
+      \begin{itemize}
+        \item Development Tools
+        \item Web Access Tools
+        \item Debugging Tools
+        \item Profiling Tools
+      \end{itemize}
+    \item Backups will be automated and cannot be triggered manually without
+      approval from an assigned administrator and a written log detailing the
+      incident requiring a manual backup.
+  \end{itemize}
+\end{policy}
+
+\begin{policy}[AC-6]
+\end{policy}
+
+\begin{policy}[References]
+  \bibliographystyle{plain}
+  \bibliography{bib}
+\end{policy}
+
+%----------------------------------------------------------------------------------------
+
+
+\end{document}
